@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Posts;
 use Illuminate\Http\Request;
+use PhpOption\Tests\PhpOptionRepo;
 
 class PostsController extends Controller
 {
@@ -26,7 +27,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        die('www');//
     }
 
     /**
@@ -37,16 +38,11 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'body' => 'required'
-        ]);
-
-        $posts = Posts::create($request->all());
+            $posts = Posts::create($request->all());
 
         return response()->json([
-            'message' => 'Great success! New post created',
-            'post' => $posts
+            'message' => 'Great success! New Post created',
+            'task' => $posts
         ]);
     }
 
