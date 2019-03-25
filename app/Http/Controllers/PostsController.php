@@ -56,9 +56,12 @@ class PostsController extends Controller
      * @param  \App\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function show(Posts $posts)
+    public function show(Request $request, $id)
     {
-        return $posts;
+        $posts = Posts::findOrFail($id);
+        return response()->json([
+            'post' => $posts
+        ]);
     }
 
     /**
